@@ -79,7 +79,9 @@ public class OffSelectedBandsService {
 		return offSelectedBandsRepository.findByLogin(login, pageable);
 	}
 
-	
+	public void delete(int id_table) {
+		offSelectedBandsRepository.delete(id_table);
+	}
 	
 	
 

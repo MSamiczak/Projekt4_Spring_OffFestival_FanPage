@@ -1,6 +1,8 @@
 package pl.off.festival.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,6 +10,38 @@ public class OffSelectedBands {
 	
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_table;
+	
+	public int getId_table() {
+		return id_table;
+	}
+	public void setId_table(int id_table) {
+		this.id_table = id_table;
+	}
+	
+	
+	
+	
+	public OffSelectedBands(int id_table, int id_band, String name_band, String city, String country, String tag,
+			int since, float listeners_kilo, String name_album, String best_song, String year, String login) {
+		this.id_table = id_table;
+		this.id_band = id_band;
+		this.name_band = name_band;
+		this.city = city;
+		this.country = country;
+		this.tag = tag;
+		this.since = since;
+		this.listeners_kilo = listeners_kilo;
+		this.name_album = name_album;
+		this.best_song = best_song;
+		this.year = year;
+		this.login = login;
+	}
+
+
+
+
 	private int id_band;
 	private String name_band;
 	private String city;
@@ -17,7 +51,7 @@ public class OffSelectedBands {
 	private float listeners_kilo;
 	private String name_album;
 	private String best_song;
-	private String year;
+	private String year;	
 	private String login;
 	
 	public int getId_band() {

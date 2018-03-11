@@ -18,7 +18,7 @@
 					<div class="post-preview">
 		<table id="table1" class="table col-sm-12 table-striped">
 		<tr class="container ">
-			<th>id</th>
+			<th>id_band</th>
 			<th>Name Band</th>
 			<th>City</th>
 			<th>Country</th>
@@ -28,6 +28,8 @@
 			<th>Best Album</th>
 			<th>Best Song</th>
 			<th>Off Festival</th>
+			<th>Login</th>
+			<th>Edition</th>
 			
 		</tr>
 		<tr th:each="band : ${choice}">
@@ -41,7 +43,8 @@
 		<td th:text="${band.name_album}" />
 		<td th:text="${band.best_song}" />
 		<td th:text="${band.year}" />
-		 <td th:text="${band.login}" />
+		<td th:text="${band.login}" />
+		<td><a th:href="${'/delete/'+band.id_table}">Delete</a></td>
 		 
 			
 		</tr>
