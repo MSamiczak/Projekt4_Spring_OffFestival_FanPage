@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headerinc :: head" />
+<meta charset="utf-8" />
+
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+
+
+
+<body id="page-top">
+	<!-- Navigation -->
+	<header th:replace="fragments/header :: header"></header>
+
+<div class="container">
+
+			<div class="form-group">
+					<div class="post-preview">
+		<table id="table1" class="table col-sm-12 table-striped">
+		<tr class="container ">
+			<th>id</th>
+			<th>Name Band</th>
+			<th>City</th>
+			<th>Country</th>
+			<th>Tag</th>
+			<th>Since</th>
+			<th>Listeners</th>
+			<th>Best Album</th>
+			<th>Best Song</th>
+			<th>Off Festival</th>
+			
+		</tr>
+		<tr th:each="s : ${select}">
+		<td th:text="${s.id_band}" />
+		<td th:text="${s.name_band}" />
+		<td th:text="${s.city}" />
+		<td th:text="${s.country}" />
+		<td th:text="${s.tag}" />
+		<td th:text="${s.since}" />
+		<td th:text="${s.listeners_kilo}" />
+		<td th:text="${s.name_album}" />
+		<td th:text="${s.best_song}" />
+		<td th:text="${s.year}" />
+		
+			
+		</tr>
+	</table>
+	
+	
+	
+	<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
+	
+	
+
+
+</body>
+
+</html>

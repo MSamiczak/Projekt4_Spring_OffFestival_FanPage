@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/headerinc :: head">
+</head>
+
+<body>
+
+	<header th:replace="fragments/header :: header"></header>
+
+	<!-- Page Header -->
+	<header class="masthead"
+		style="background-image: url('../img/home-bg.jpg')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="site-heading">
+						<h1>View User</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+
+				<form th:object="${user}">
+
+					<div class="form-group">
+						<label>Name</label>
+						<p class="form-control-static" th:text="*{name}" />
+					
+					</div>
+
+					<div class="form-group">
+						<label>Last name</label>
+						<p class="form-control-static" th:text="*{lastName}" />
+					</div>
+
+					<div class="form-group">
+						<label>Email</label>
+						<p class="form-control-static" th:text="*{email}" />
+					</div>
+
+					<div class="form-group">
+						<label>Active</label>
+						<p class="form-control-static" th:text="*{active}" />
+					</div>
+
+					<div class="form-group">
+						<label>Role</label>
+						<p class="form-control-static" th:text="*{role.role}" />
+					</div>
+
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

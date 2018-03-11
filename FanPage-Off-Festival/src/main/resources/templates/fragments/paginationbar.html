@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Stylish Portfolio - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet"/>
+
+  </head>
+<body>
+
+   <!-- Pagination Bar -->
+			<div th:fragment='paginationbar' class="paginate">
+	
+					<ul>
+						<li><span
+							th:if='${page.firstPage}'>&nbsp;First&nbsp;</span> <a
+							th:if='${not page.firstPage}'
+							th:href='@{${page.url}(page=0,size=${page.size})}'>&nbsp;First&nbsp;</a></li>
+							
+						<li><span
+							th:if='${not page.hasPreviousPage}'>&nbsp;Previous&nbsp;</span> <a
+							th:if='${page.hasPreviousPage}'
+							th:href='@{${page.url}(page=${page.number-2},size=${page.size})}'
+							title='Go to previous page'>&nbsp;Previous&nbsp;</a></li>
+							
+						<li th:each='item : ${page.items}'
+							><span
+							th:if='${item.current}' th:text='${item.number}'>1</span> <a
+							th:if='${not item.current}'
+							th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span
+								th:text='${item.number}'>1</span></a></li>
+								
+						<li><span
+							th:if='${not page.hasNextPage}'>&nbsp;Next&nbsp;</span> <a
+							th:if='${page.hasNextPage}'
+							th:href='@{${page.url}(page=${page.number},size=${page.size})}'
+							title='Go to next page'>&nbsp;Next&nbsp;</a></li>
+							
+						<li><span
+							th:if='${page.lastPage}'>&nbsp;Last&nbsp;</span> <a
+							th:if='${not page.lastPage}'
+							th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>&nbsp;Last&nbsp;</a></li>
+					</ul>
+				</div>
+</body>
+</html>
