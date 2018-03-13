@@ -13,10 +13,28 @@
 	<header th:replace="fragments/header :: header"></header>
 
 <div class="container">
+		 <form th:action="@{/listofallbands}" method="post" th:object="${filter}">
+			<div class="form-group"> 
+				Name Band:<input type="text" th:field="*{name_band}" placeholder="Search for Band.."/>
+				Music Genre:  <input type="text" th:field="*{tag}" placeholder="Search for Music Genre.."/>
+				Country:  <input type="text" th:field="*{country}" placeholder="Search for Band from..{e.g. PL, GER}"/>
+				Since:  <input type="text" th:field="*{since}" placeholder="Search for Bands founded Since..{e.g. 1990}"/>
+				<br/><br/>
+				<button type="submit" class="btn btn-primary">Search</button>
+			</div>
+		
+		</form> 
+
+		<br />
+		<br />
+		
+		<div th:if="${#lists.isEmpty(bands)}">Empty list users!</div>
+
+		<div th:if="${not #lists.isEmpty(bands)}">
 
 			<div class="form-group">
 					<div class="post-preview">
-		<table id="table1" class="table col-sm-12 table-striped">
+		<table id="table1" class="table col-sm-12 table-striped table-fixed">
 		<tr class="container ">
 			<th>id</th>
 			<th>Name Band</th>
@@ -94,12 +112,12 @@
 
 	
 	<div class="container text-center my-bottom mt-5">
-	<div  th:replace="fragments/paginationbar :: paginationbar"></div>
+	<!-- <div  th:replace="fragments/paginationbar :: paginationbar"></div> -->
 	</div>
 				</div>
 	</div>
 	</div>
-
+</div>
 	
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>

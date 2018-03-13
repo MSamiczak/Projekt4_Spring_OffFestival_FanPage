@@ -1,7 +1,8 @@
 package pl.off.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,10 +36,10 @@ public class IndexController {
 	public String filter(@RequestParam Integer year, @ModelAttribute BandsFilter bandsFilter, Model model,
 			Pageable pageable) {
 
-		Page<Offview> pageOff = offViewService.getByFilter(bandsFilter, pageable);
+		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
 		model.addAttribute("bands", pageOff);
-		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "listofallbands");
-		model.addAttribute("page", page);
+//		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "listofallbands");
+//		model.addAttribute("page", page);
 		model.addAttribute("year", year);
 
 		model.addAttribute("filter", bandsFilter);

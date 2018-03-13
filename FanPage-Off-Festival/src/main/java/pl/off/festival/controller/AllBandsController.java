@@ -1,5 +1,7 @@
 package pl.off.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,13 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.off.festival.model.BandsFilter;
 import pl.off.festival.model.OffSelectedBands;
 import pl.off.festival.model.Offview;
-import pl.off.festival.model.User;
 import pl.off.festival.service.OffSelectedBandsService;
 import pl.off.festival.service.OffViewService;
 import pl.off.festival.service.UserService;
@@ -27,16 +27,12 @@ public class AllBandsController {
 	
 	private OffViewService offViewService;
 	private OffSelectedBandsService offSelectedBandsService;
-	private User user;
-	private UserService userService;
 	
-
 
 	@Autowired
 	public AllBandsController(OffViewService offViewService, OffSelectedBandsService offSelectedBandsService, UserService userService) {
 		this.offViewService = offViewService;
 		this.offSelectedBandsService = offSelectedBandsService;
-		this.userService = userService;
 	}
 
 
@@ -49,7 +45,7 @@ public class AllBandsController {
 	
 	
 	@GetMapping("/listofallbands")
-	public String bands(Model model, Pageable pageable) {
+	public String bands(@ModelAttribute BandsFilter bandsFilter, Model model, Pageable pageable) {
 		
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -57,10 +53,13 @@ public class AllBandsController {
 		
 		System.out.println(login);
 		 
-		Page<Offview> pageOff = offViewService.getAll(pageable);
+//		Page<Offview> pageOff = offViewService.getAll(pageable);
+//		Page<Offview> pageOff = offViewService.getByFilter(bandsFilter, pageable);
+		
+		List<Offview> pageOff = offViewService.getAll();
 		model.addAttribute("bands", pageOff);
-		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
-		model.addAttribute("page", page);
+//		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
+//		model.addAttribute("page", page);
 		
 		model.addAttribute("filter", new BandsFilter());
 		
@@ -80,7 +79,7 @@ public class AllBandsController {
 	}
 	
 	@PostMapping("/listofallbands")
-	public String filter(Integer year, @ModelAttribute BandsFilter bandsFilter, Model model, Pageable pageable, 
+	public String filter(@ModelAttribute BandsFilter bandsFilter, Model model, Pageable pageable, 
 			@ModelAttribute OffSelectedBands offSelecetedBands, BindingResult bindingResult) {
 		
 		
@@ -91,18 +90,18 @@ public class AllBandsController {
 		 
 		model.addAttribute("select", login);
 		
-		Page<Offview> pageOff = offViewService.getByFilter(bandsFilter, pageable);
+//		Page<Offview> pageOff = offViewService.getByFilter(bandsFilter, pageable);
+		List<Offview> pageOff = offViewService.getAll();
 		model.addAttribute("bands", pageOff);
-		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
-		model.addAttribute("page", page);
-		model.addAttribute("year", year);
-		
+//		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
+//		model.addAttribute("page", page);
+//		
 		model.addAttribute("filter", bandsFilter);
 		
-		
-		if (bindingResult.hasErrors()) {
-			return "listofallbands";
-		}
+//		
+//		if (bindingResult.hasErrors()) {
+//			return "listofallbands";
+//		}
 
 		OffSelectedBands selectedBands = offSelectedBandsService.addSelectBands(offSelecetedBands, login);
 

@@ -13,7 +13,7 @@ public class Offview {
 	private String city;
 	private String country;
 	private String tag;
-	private int since;
+	private String since;
 	private float listeners_kilo;
 	private String name_album;
 	private String best_song;
@@ -50,10 +50,10 @@ public class Offview {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
-	public int getSince() {
+	public String getSince() {
 		return since;
 	}
-	public void setSince(int since) {
+	public void setSince(String since) {
 		this.since = since;
 	}
 	public float getListeners_kilo() {
@@ -80,7 +80,7 @@ public class Offview {
 	public void setYear(String year) {
 		this.year = year;
 	}
-	public Offview(int id_band, String name_band, String city, String country, String tag, int since,
+	public Offview(int id_band, String name_band, String city, String country, String tag, String since,
 			float listeners_kilo, String name_album, String best_song, String year) {
 		this.id_band = id_band;
 		this.name_band = name_band;
