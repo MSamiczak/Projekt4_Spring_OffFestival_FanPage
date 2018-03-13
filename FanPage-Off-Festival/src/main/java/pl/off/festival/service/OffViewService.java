@@ -35,9 +35,9 @@ public class OffViewService {
 		
 	}
 	
-	public Page<Offview> getAll(Pageable pageable) {
-		return offViewRepository.findAll(pageable);
-	}
+//	public Page<Offview> getAll(Pageable pageable) {
+//		return offViewRepository.findAll(pageable);
+//	}
 
 	
 	public List<Offview> getAll() {

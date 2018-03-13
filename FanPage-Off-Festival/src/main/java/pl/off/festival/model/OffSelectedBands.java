@@ -21,98 +21,94 @@ public class OffSelectedBands {
 	}
 	
 	
-	
-	
-	public OffSelectedBands(int id_table, int id_band, String name_band, String city, String country, String tag,
-			int since, float listeners_kilo, String name_album, String best_song, String year, String login) {
+	private int id_bandS;
+	private String name_bandS;
+	private String cityS;
+	private String countryS;
+	private String tagS;
+	private int sinceS;
+	private float listeners_kiloS;
+	private String name_albumS;
+	private String best_songS;
+	private String yearS;	
+	private String login;
+
+	public OffSelectedBands(int id_table, int id_bandS, String name_bandS, String cityS, String countryS, String tagS,
+			int sinceS, float listeners_kiloS, String name_albumS, String best_songS, String yearS, String login) {
 		this.id_table = id_table;
-		this.id_band = id_band;
-		this.name_band = name_band;
-		this.city = city;
-		this.country = country;
-		this.tag = tag;
-		this.since = since;
-		this.listeners_kilo = listeners_kilo;
-		this.name_album = name_album;
-		this.best_song = best_song;
-		this.year = year;
+		this.id_bandS = id_bandS;
+		this.name_bandS = name_bandS;
+		this.cityS = cityS;
+		this.countryS = countryS;
+		this.tagS = tagS;
+		this.sinceS = sinceS;
+		this.listeners_kiloS = listeners_kiloS;
+		this.name_albumS = name_albumS;
+		this.best_songS = best_songS;
+		this.yearS = yearS;
 		this.login = login;
 	}
-
-
-
-
-	private int id_band;
-	private String name_band;
-	private String city;
-	private String country;
-	private String tag;
-	private int since;
-	private float listeners_kilo;
-	private String name_album;
-	private String best_song;
-	private String year;	
-	private String login;
-	
-	public int getId_band() {
-		return id_band;
+	public OffSelectedBands() {
 	}
-	public void setId_band(int id_band) {
-		this.id_band = id_band;
+	public int getId_bandS() {
+		return id_bandS;
 	}
-	public String getName_band() {
-		return name_band;
+	public void setId_bandS(int id_bandS) {
+		this.id_bandS = id_bandS;
 	}
-	public void setName_band(String name_band) {
-		this.name_band = name_band;
+	public String getName_bandS() {
+		return name_bandS;
 	}
-	public String getCity() {
-		return city;
+	public void setName_bandS(String name_bandS) {
+		this.name_bandS = name_bandS;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public String getCityS() {
+		return cityS;
 	}
-	public String getCountry() {
-		return country;
+	public void setCityS(String cityS) {
+		this.cityS = cityS;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+	public String getCountryS() {
+		return countryS;
 	}
-	public String getTag() {
-		return tag;
+	public void setCountryS(String countryS) {
+		this.countryS = countryS;
 	}
-	public void setTag(String tag) {
-		this.tag = tag;
+	public String getTagS() {
+		return tagS;
 	}
-	public int getSince() {
-		return since;
+	public void setTagS(String tagS) {
+		this.tagS = tagS;
 	}
-	public void setSince(int since) {
-		this.since = since;
+	public int getSinceS() {
+		return sinceS;
 	}
-	public float getListeners_kilo() {
-		return listeners_kilo;
+	public void setSinceS(int sinceS) {
+		this.sinceS = sinceS;
 	}
-	public void setListeners_kilo(float listeners_kilo) {
-		this.listeners_kilo = listeners_kilo;
+	public float getListeners_kiloS() {
+		return listeners_kiloS;
 	}
-	public String getName_album() {
-		return name_album;
+	public void setListeners_kiloS(float listeners_kiloS) {
+		this.listeners_kiloS = listeners_kiloS;
 	}
-	public void setName_album(String name_album) {
-		this.name_album = name_album;
+	public String getName_albumS() {
+		return name_albumS;
 	}
-	public String getBest_song() {
-		return best_song;
+	public void setName_albumS(String name_albumS) {
+		this.name_albumS = name_albumS;
 	}
-	public void setBest_song(String best_song) {
-		this.best_song = best_song;
+	public String getBest_songS() {
+		return best_songS;
 	}
-	public String getYear() {
-		return year;
+	public void setBest_songS(String best_songS) {
+		this.best_songS = best_songS;
 	}
-	public void setYear(String year) {
-		this.year = year;
+	public String getYearS() {
+		return yearS;
+	}
+	public void setYearS(String yearS) {
+		this.yearS = yearS;
 	}
 	public String getLogin() {
 		return login;
@@ -120,28 +116,16 @@ public class OffSelectedBands {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public OffSelectedBands(int id_band, String name_band, String city, String country, String tag, int since,
-			float listeners_kilo, String name_album, String best_song, String year, String login) {
-		this.id_band = id_band;
-		this.name_band = name_band;
-		this.city = city;
-		this.country = country;
-		this.tag = tag;
-		this.since = since;
-		this.listeners_kilo = listeners_kilo;
-		this.name_album = name_album;
-		this.best_song = best_song;
-		this.year = year;
-		this.login = login;
-	}
-	public OffSelectedBands() {
-	}
+	
+	
 	@Override
 	public String toString() {
-		return "OffSelectedBands [id_band=" + id_band + ", name_band=" + name_band + ", city=" + city + ", country="
-				+ country + ", tag=" + tag + ", since=" + since + ", listeners_kilo=" + listeners_kilo + ", name_album="
-				+ name_album + ", best_song=" + best_song + ", year=" + year + ", login=" + login + "]";
+		return "OffSelectedBands [id_table=" + id_table + ", id_bandS=" + id_bandS + ", name_bandS=" + name_bandS
+				+ ", cityS=" + cityS + ", countryS=" + countryS + ", tagS=" + tagS + ", sinceS=" + sinceS
+				+ ", listeners_kiloS=" + listeners_kiloS + ", name_albumS=" + name_albumS + ", best_songS=" + best_songS
+				+ ", yearS=" + yearS + ", login=" + login + "]";
 	}
+	
 	
 	
 	
@@ -149,4 +133,4 @@ public class OffSelectedBands {
 	
 	
 }
-
+	

@@ -1,7 +1,8 @@
 package pl.off.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,18 +34,13 @@ public class SelectedBandsController {
 		System.out.println(login);
 		
 		model.addAttribute("choice", login);
-		Page<OffSelectedBands> pageOff = offSelectedBandsService.getAll(login, pageable);
+		List<OffSelectedBands> pageOff = offSelectedBandsService.getAll(login);
 		model.addAttribute("choice", pageOff);
 
 		return "selectedbands";
 	}
 	
-	@GetMapping("/delete/{id_table}")
-	public String delete(@PathVariable int id_table) {
-
-		offSelectedBandsService.delete(id_table);
-		return "redirect:/selectedbands";
-	}
+	
 
 	
 	

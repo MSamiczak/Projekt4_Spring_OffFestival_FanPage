@@ -3,8 +3,11 @@
 <head th:replace="fragments/headerinc :: head" />
 <meta charset="utf-8" />
 
-    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	type="text/css" rel="stylesheet" />
 
 
 
@@ -12,166 +15,126 @@
 	<!-- Navigation -->
 	<header th:replace="fragments/header :: header"></header>
 
-<div class="container">
-		 <form th:action="@{/listofallbands}" method="post" th:object="${filter}">
-			<div class="form-group"> 
-				Name Band:<input type="text" th:field="*{name_band}" placeholder="Search for Band.."/>
-				Music Genre:  <input type="text" th:field="*{tag}" placeholder="Search for Music Genre.."/>
-				Country:  <input type="text" th:field="*{country}" placeholder="Search for Band from..{e.g. PL, GER}"/>
-				Since:  <input type="text" th:field="*{since}" placeholder="Search for Bands founded Since..{e.g. 1990}"/>
-				<br/><br/>
-				<button type="submit" class="btn btn-primary">Search</button>
-			</div>
-		
-		</form> 
 
-		<br />
-		<br />
-		
-		<div th:if="${#lists.isEmpty(bands)}">Empty list users!</div>
-
-		<div th:if="${not #lists.isEmpty(bands)}">
-
-			<div class="form-group">
-					<div class="post-preview">
-		<table id="table1" class="table col-sm-12 table-striped table-fixed">
-		<tr class="container ">
-			<th>id</th>
-			<th>Name Band</th>
-			<th>City</th>
-			<th>Country</th>
-			<th>Tag</th>
-			<th>Since</th>
-			<th>Listeners</th>
-			<th>Best Album</th>
-			<th>Best Song</th>
-			<th>Off Festival</th>
+	<form th:action="@{/listofallbands}" method="post"
+		th:object="${filter}">
+		<div class="form-group">
+			Name Band:<input type="text" id="own" th:field="*{name_band}"
+				placeholder="Search for Band.." />
+				
+			Music Genre: <input type="text"
+				id="own" th:field="*{tag}" placeholder="Search for Music Genre.." />
+				
+			Country: <input type="text" id="own" th:field="*{country}"
+				placeholder="Search for Band from..{e.g. PL, GER}" /> 
+				
+			Since: <input
+				type="text" id="own" th:field="*{since}"
+				placeholder="Search for Bands founded Since..{e.g. 1990}" /> 
+				
+			<br />
+			<br />
 			
-		</tr>
-		<tr th:each="band : ${bands}">
-		<td th:text="${band.id_band}" />
-		<td th:text="${band.name_band}" />
-		<td th:text="${band.city}" />
-		<td th:text="${band.country}" />
-		<td th:text="${band.tag}" />
-		<td th:text="${band.since}" />
-		<td th:text="${band.listeners_kilo}" />
-		<td th:text="${band.name_album}" />
-		<td th:text="${band.best_song}" />
-		<td th:text="${band.year}" />
-		
 			
-		</tr>
-	</table>
+			
+			
+			
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+		
+
+	</form>
 	
 	
-	  <div class="form-group">
-        <div class="col-sm-12">
-            <span class="help-block">You can select with <b>Ctrl</b>, <b>Shift</b>, <b>Common</b> Or <b>Ctrl + A</b></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-            <h2 class="text-center">Select Items</h2>
-        </div>
-    </div>
-   
-
-<form id="forma" th:action="@{/listofallbands}" method="post" th:object="${select}">
-					 <div class="form-group" style="border: 1px solid #ddd">
-        <table id="table2"  class="table col-sm-12">
-
-        </table>
-    </div>
-    				<input type="hidden" name="id_band" id="id_band"/>
-					<input type="hidden" name="name_band" id="name_band"/>
-					<input type="hidden" name="city" id="city"/>
-					<input type="hidden" name="country" id="country"/>
-					<input type="hidden" name="tag" id="tag"/>
-					<input type="hidden" name="since" id="since"/>
-					<input type="hidden" name="listeners_kilo" id="listeners_kilo"/>
-					<input type="hidden" name="name_album" id="name_album"/>
-					<input type="hidden" name="best_song" id="best_song"/>
-					<input type="hidden" name="year" id="year"/>
-					
-					
-					<!-- <input type="hidden" th:field="*{city}" />
-					<input type="hidden" th:field="*{country}" />
-					<input type="hidden" th:field="*{tag}" />
-					<input type="hidden" th:field="*{since}" />
-					<input type="hidden" th:field="*{listeners_kilo}" />
-					<input type="hidden" th:field="*{name_album}" />
-					<input type="hidden" th:field="*{best_song}" />
-					<input type="hidden" th:field="*{year}" /> -->
-
-<p><input type="submit" id="bt" value="Show Table Data" onclick="showTableData()" /></p>
-    <p id="info"></p>
-
-</form>
-
-
+	<ul class="list-unstyled">
+			<li><span class="year">Discover</span>
+				<form class="inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<input type="hidden" name="tag" value='rock' />
+				<button type="submit" class="btn btn-link">Rock</button></form></li>
 	
-	<div class="container text-center my-bottom mt-5">
-	<!-- <div  th:replace="fragments/paginationbar :: paginationbar"></div> -->
-	</div>
+		</ul>
+
+			<br />
+			<br />
+
+
+
+
+
+	<div class="container">
+
+		<div class="form-group">
+			<div class="post-preview">
+				<table id="table1" class="table col-sm-12 table-striped table-fixed">
+					<tr class="container ">
+						<th>id</th>
+						<th>Name Band</th>
+						<th>City</th>
+						<th>Country</th>
+						<th>Tag</th>
+						<th>Since</th>
+						<th>Listeners</th>
+						<th>Best Album</th>
+						<th>Best Song</th>
+						<th>Off Festival</th>
+
+					</tr>
+					<tr th:each="band : ${bands}">
+						<td th:text="${band.id_band}" />
+						<td th:text="${band.name_band}" />
+						<td th:text="${band.city}" />
+						<td th:text="${band.country}" />
+						<td th:text="${band.tag}" />
+						<td th:text="${band.since}" />
+						<td th:text="${band.listeners_kilo}" />
+						<td th:text="${band.name_album}" />
+						<td th:text="${band.best_song}" />
+						<td th:text="${band.year}" />
+
+
+					</tr>
+				</table>
+
+				<span class="help-block">You can select with <b>Ctrl</b>, <b>Shift</b>,
+					<b>Common</b> Or <b>Ctrl + A</b></span>
+
+				<div class="form-group">
+					<div class="col-sm-12">
+						<h2 class="text-center">Select Items</h2>
+					</div>
 				</div>
+
+				<table id="table2" class="table col-sm-12"></table>
+
+				<form id="forma" th:action="@{/listofallbands}" method="post"
+					th:object="${select}">
+					<div class="form-group" style="border: 1px solid #ddd"></div>
+					<input type="hidden" name="id_bandS" id="id_band" /> 
+					<input type="hidden" name="name_bandS" id="name_band" /> 
+					<input type="hidden" name="cityS" id="city" /> 
+					<input type="hidden" name="countryS" id="country" /> 
+					<input type="hidden" name="tagS" id="tag" /> 
+					<input type="hidden" name="sinceS" id="since" /> 
+					<input type="hidden" name="listeners_kiloS" id="listeners_kilo" />
+					<input type="hidden" name="name_albumS" id="name_album" /> 
+					<input type="hidden" name="best_songS" id="best_song" /> 
+					<input type="hidden" name="yearS" id="year" />
+
+					<p>
+						<input type="submit" id="bt" value="Add to DB" />
+					</p>
+
+				</form>
+				<p id="info"></p>
+
+				<div class="container text-center my-bottom mt-5"></div>
+			</div>
+		</div>
 	</div>
-	</div>
-</div>
-	
+
+
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
-	
-	
-	
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="js/multiselect.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-
-    $(function () {
-        $('#table1').multiSelect({
-            actcls: 'info',
-            selector: 'tbody tr',
-            except: ['tbody'],
-            statics: ['.danger', '[data-no="1"]'],
-            callback: function (items) {
-                $('#table2').empty().append(items.clone().removeClass('info').addClass('success'));
-            }
-        });
-        
-        
-    })
-
-</script>
-
-
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
-
-
-//<![CDATA[ 
- $(document).ready(function() {
-    var table = $('#table1').DataTable();
- 
-    $('#table1 tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );
- 
-    $('#button').click( function () {
-        table.row('.selected').remove().draw( false );
-    } );
-} );
-//]]>
-</script>
- -->
 
 
 
@@ -186,59 +149,56 @@
 
 
 
-<script type="text/javascript">
-//<![CDATA[ 
-    function showTableData() {
-        document.getElementById('info').innerHTML = "";
-        var myTab = document.getElementById('table1');
-
-        // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
-        for (i = 0; i < myTab.rows.length; i++) {
-
-            // GET THE CELLS COLLECTION OF THE CURRENT ROW.
-            var objCells = myTab.rows.item(i).cells;
-
-            // LOOP THROUGH EACH CELL OF THE CURENT ROW TO READ CELL VALUES.
-            for (var j = 0; j < objCells.length; j++) {
-                info.innerHTML = info.innerHTML + ' ' + objCells.item(j).innerHTML;
-                /* document.getElementById('name_band').value = this.cells[0].innerHTML; */
-            }
-           info.innerHTML = info.innerHTML + '<br />';     // ADD A BREAK (TAG).
-           
-           
-        }
-    }
-//]]>
-</script>
-
- <script type="text/javascript">
-//<![CDATA[ 
-                var table = document.getElementById('table1');
-                
-                for(var i = 0; i < table.rows.length; i++)
-                {
-                    table.rows[i].onclick = function()
-                    {
-                         //rIndex = this.rowIndex;
-                        document.getElementById('id_band').value = this.cells[0].innerHTML;
-				           document.getElementById('name_band').value = this.cells[1].innerHTML;
-				           document.getElementById('city').value = this.cells[2].innerHTML;
-				           document.getElementById('country').value = this.cells[3].innerHTML;
-				           document.getElementById('tag').value = this.cells[4].innerHTML;
-				           document.getElementById('since').value = this.cells[5].innerHTML;
-				           document.getElementById('listeners_kilo').value = this.cells[6].innerHTML;
-				           document.getElementById('name_album').value = this.cells[7].innerHTML;
-				           document.getElementById('best_song').value = this.cells[8].innerHTML;
-				           document.getElementById('year').value = this.cells[9].innerHTML;
-                        /*   document.getElementById("lname").value = this.cells[1].innerHTML;
-                         document.getElementById("age").value = this.cells[2].innerHTML;  */
-                    };
-                }
-              //]]>
-         </script>
- 
 
 
+
+
+
+
+
+
+
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="js/multiselect.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			$('#table1').multiSelect(
+					{
+						actcls : 'info',
+						selector : 'tbody tr',
+						except : [ 'tbody' ],
+						statics : [ '.danger', '[data-no="1"]' ],
+						callback : function(items) {
+							$('#table2').empty().append(items.clone().removeClass('info').addClass('success'));
+						}
+					});
+
+		})
+	</script>
+
+	<script type="text/javascript">
+		//<![CDATA[ 
+		var table = document.getElementById('table1');
+
+		for (var i = 0; i < table.rows.length; i++) {
+			table.rows[i].onclick = function() {
+				//rIndex = this.rowIndex;
+				document.getElementById('id_band').value = this.cells[0].innerHTML;
+				document.getElementById('name_band').value = this.cells[1].innerHTML;
+				document.getElementById('city').value = this.cells[2].innerHTML;
+				document.getElementById('country').value = this.cells[3].innerHTML;
+				document.getElementById('tag').value = this.cells[4].innerHTML;
+				document.getElementById('since').value = this.cells[5].innerHTML;
+				document.getElementById('listeners_kilo').value = this.cells[6].innerHTML;
+				document.getElementById('name_album').value = this.cells[7].innerHTML;
+				document.getElementById('best_song').value = this.cells[8].innerHTML;
+				document.getElementById('year').value = this.cells[9].innerHTML;
+			};
+		}
+		//]]>
+	</script>
 
 
 </body>

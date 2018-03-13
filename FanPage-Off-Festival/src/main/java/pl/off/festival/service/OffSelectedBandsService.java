@@ -1,9 +1,10 @@
 package pl.off.festival.service;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -34,16 +35,16 @@ public class OffSelectedBandsService {
 		
 		
 		select.setLogin(login);
-		select.setId_band(select.getId_band());
-		select.setName_band(select.getName_band());
-		select.setCity(select.getCity());
-		select.setCountry(select.getCountry());
-		select.setTag(select.getTag());
-		select.setSince(select.getSince());
-		select.setListeners_kilo(select.getListeners_kilo());
-		select.setName_album(select.getName_album());
-		select.setBest_song(select.getBest_song());
-		select.setYear(select.getYear());
+		select.setId_bandS(select.getId_bandS());
+		select.setName_bandS(select.getName_bandS());
+		select.setCityS(select.getCityS());
+		select.setCountryS(select.getCountryS());
+		select.setTagS(select.getTagS());
+		select.setSinceS(select.getSinceS());
+		select.setListeners_kiloS(select.getListeners_kiloS());
+		select.setName_albumS(select.getName_albumS());
+		select.setBest_songS(select.getBest_songS());
+		select.setYearS(select.getYearS());
 
 		return offSelectedBandsRepository.save(select);
 	}
@@ -74,9 +75,9 @@ public class OffSelectedBandsService {
 //		}
 	
 	
-	public Page<OffSelectedBands> getAll(String login, Pageable pageable) {
+	public List<OffSelectedBands> getAll(String login) {
 		
-		return offSelectedBandsRepository.findByLogin(login, pageable);
+		return offSelectedBandsRepository.findByLogin(login);
 	}
 
 	public void delete(int id_table) {

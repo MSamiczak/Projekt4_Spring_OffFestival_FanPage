@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.off.festival.model.BandsFilter;
@@ -54,8 +55,9 @@ public class AllBandsController {
 		System.out.println(login);
 		 
 //		Page<Offview> pageOff = offViewService.getAll(pageable);
-		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
+//		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
 		
+		List<Offview> pageOff = offViewService.getAll();
 //		List<Offview> pageOff = offViewService.getAll();
 		model.addAttribute("bands", pageOff);
 //		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
@@ -91,7 +93,7 @@ public class AllBandsController {
 		model.addAttribute("select", login);
 		
 		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
-//		List<Offview> pageOff = offViewService.getAll();
+		
 		model.addAttribute("bands", pageOff);
 //		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
 //		model.addAttribute("page", page);
@@ -114,6 +116,16 @@ public class AllBandsController {
 	
 
 }
+	
+	@GetMapping("/delete/{id_table}")
+	public String delete(@PathVariable int id_table) {
+
+		offSelectedBandsService.delete(id_table);
+		return "redirect:/selectedbands";
+	}
+	
+	
+	
 
 	
 //	@PostMapping("/listofallbands")

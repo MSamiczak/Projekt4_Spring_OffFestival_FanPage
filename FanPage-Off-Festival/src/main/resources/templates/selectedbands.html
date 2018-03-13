@@ -33,16 +33,16 @@
 			
 		</tr>
 		<tr th:each="band : ${choice}">
-		<td th:text="${band.id_band}" /> 
-		<td th:text="${band.name_band}" />
-		<td th:text="${band.city}" />
-		<td th:text="${band.country}" />
-		<td th:text="${band.tag}" />
-		<td th:text="${band.since}" />
-		<td th:text="${band.listeners_kilo}" />
-		<td th:text="${band.name_album}" />
-		<td th:text="${band.best_song}" />
-		<td th:text="${band.year}" />
+		<td th:text="${band.id_bandS}" /> 
+		<td th:text="${band.name_bandS}" />
+		<td th:text="${band.cityS}" />
+		<td th:text="${band.countryS}" />
+		<td th:text="${band.tagS}" />
+		<td th:text="${band.sinceS}" />
+		<td th:text="${band.listeners_kiloS}" />
+		<td th:text="${band.name_albumS}" />
+		<td th:text="${band.best_songS}" />
+		<td th:text="${band.yearS}" />
 		<td th:text="${band.login}" />
 		<td><a th:href="${'delete/'+band.id_table}">Delete</a></td>
 		 
