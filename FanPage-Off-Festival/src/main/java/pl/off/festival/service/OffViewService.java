@@ -138,8 +138,9 @@ public class OffViewService {
 
 		Long total = entityManager.createQuery(countQuery).getSingleResult();
 
-
-		return getByFilter(bandsFilter);
+//		List<Offview> list = new List<>(resultOff, total);
+		
+		return resultOff;
 	}
 	
 	

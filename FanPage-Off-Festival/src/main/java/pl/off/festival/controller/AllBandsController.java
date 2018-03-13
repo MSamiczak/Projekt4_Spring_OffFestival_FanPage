@@ -54,9 +54,9 @@ public class AllBandsController {
 		System.out.println(login);
 		 
 //		Page<Offview> pageOff = offViewService.getAll(pageable);
-//		Page<Offview> pageOff = offViewService.getByFilter(bandsFilter, pageable);
+		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
 		
-		List<Offview> pageOff = offViewService.getAll();
+//		List<Offview> pageOff = offViewService.getAll();
 		model.addAttribute("bands", pageOff);
 //		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
 //		model.addAttribute("page", page);
@@ -90,8 +90,8 @@ public class AllBandsController {
 		 
 		model.addAttribute("select", login);
 		
-//		Page<Offview> pageOff = offViewService.getByFilter(bandsFilter, pageable);
-		List<Offview> pageOff = offViewService.getAll();
+		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
+//		List<Offview> pageOff = offViewService.getAll();
 		model.addAttribute("bands", pageOff);
 //		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
 //		model.addAttribute("page", page);
@@ -107,8 +107,6 @@ public class AllBandsController {
 
 		System.out.println("Saved Bands: " + selectedBands);
 
-		model.addAttribute("success", "User has been registered successfully");
-		
 		model.addAttribute("select", new OffSelectedBands());
 
 		
