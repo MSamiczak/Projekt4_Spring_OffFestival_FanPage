@@ -1,11 +1,11 @@
 package pl.off.festival.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import pl.off.festival.model.OffSelectedBands;
@@ -33,7 +33,6 @@ public class OffSelectedBandsService {
 
 		
 		
-		
 		select.setLogin(login);
 		select.setId_bandS(select.getId_bandS());
 		select.setName_bandS(select.getName_bandS());
@@ -48,6 +47,52 @@ public class OffSelectedBandsService {
 
 		return offSelectedBandsRepository.save(select);
 	}
+	
+	
+	public List<OffSelectedBands> addSelectBandsList(OffSelectedBands select, String login) {
+
+		List<OffSelectedBands> list = new ArrayList<OffSelectedBands>();
+		
+		
+		select.setLogin(login);
+		select.setId_bandS(select.getId_bandS());
+		select.setName_bandS(select.getName_bandS());
+		select.setCityS(select.getCityS());
+		select.setCountryS(select.getCountryS());
+		select.setTagS(select.getTagS());
+		select.setSinceS(select.getSinceS());
+		select.setListeners_kiloS(select.getListeners_kiloS());
+		select.setName_albumS(select.getName_albumS());
+		select.setBest_songS(select.getBest_songS());
+		select.setYearS(select.getYearS());
+		
+		list.add(select);
+
+		return offSelectedBandsRepository.save(list);
+	}
+	
+
+
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public User getUserById(long id) {

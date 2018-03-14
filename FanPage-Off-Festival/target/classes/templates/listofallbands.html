@@ -131,11 +131,10 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 				<table id="table2" class="table col-sm-12"></table>
 
-				<form id="forma" th:action="@{/listofallbands}" method="post"
-					th:object="${select}">
+				<form id="forma" th:action="@{/listofallbands}" method="post" th:object="${select}">
 					<div class="form-group" style="border: 1px solid #ddd"></div>
-					<input type="hidden" name="id_bandS" id="id_band" /> 
-					<input type="hidden" name="name_bandS" id="name_band" /> 
+					<input type="hidden" th:name="name_bandS"  id="name_band" /> 
+				<input type="hidden" name="s.name_bandS" id="name_band" />  
 					<input type="hidden" name="cityS" id="city" /> 
 					<input type="hidden" name="countryS" id="country" /> 
 					<input type="hidden" name="tagS" id="tag" /> 
@@ -143,7 +142,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 					<input type="hidden" name="listeners_kiloS" id="listeners_kilo" />
 					<input type="hidden" name="name_albumS" id="name_album" /> 
 					<input type="hidden" name="best_songS" id="best_song" /> 
-					<input type="hidden" name="yearS" id="year" />
+					<input type="hidden" name="yearS" id="year" /> 
 
 					<p>
 						<input sec:authorize="isAuthenticated()" class="mb-5 mt-5 btn btn-primary btn-xl js-scroll-trigger" 
