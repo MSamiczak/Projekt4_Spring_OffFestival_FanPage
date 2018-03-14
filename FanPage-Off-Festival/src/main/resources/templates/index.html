@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/headerinc :: head" />
 <meta charset="utf-8" />
 
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+	
 
 
 <body id="page-top">
@@ -27,8 +27,8 @@
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-lg-10 mx-auto">
-					<h2>Off festival latami</h2>
-					<p class="lead mb-5">Przegląd wykonawców</p>
+					<h2>Off festival in years</h2>
+					<p class="lead mb-5">Artist overview</p>
 
 				</div>
 			</div>
@@ -148,39 +148,51 @@
 	<section class="content-section bg-primary text-white text-center" id="services">
       <div class="container">
         <div class="content-section-heading">
-          <h3 class="text-secondary mb-0">Narzędzia</h3>
-          <h2 class="mb-5">Skorzystaj z play off narzędzi</h2>
+          <h2 class="text-secondary mb-2">Tools</h2>
+          <p class="lead mb-5">Discover PlayOff Creator or say: 'Hello World'!</p>
         </div>
+        
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <div class="col-lg-6 col-md-4 mb-5 mb-lg-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
-              <a class="link-unstyled" href="#"><i class="icon-rocket"></i></a>
+              <a class="link-unstyled" href="listofallbands"><i class="icon-rocket"></i></a>
             </span>
             <h4>
-              <strong>Wykonawcy</strong>
+              <strong>Music</strong>
             </h4>
-            <p class="text-faded mb-0">Poznaj wykonawców!</p>
+            <p class="text-faded mb-2">Choose your favourites Artists!</p>
           </div>
 		  
-		  
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+         <!--  <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
               <a  class="link-unstyled" href="#"> <i class="icon-briefcase"></i></a>
             </span>
             <h4>
               <strong>Dodaj Wykonawcę</strong>
             </h4>
-            <p class="text-faded mb-0">Buduj bibliotekę wykonawców!</p>
+            <p class="text-faded mb-2">Buduj bibliotekę wykonawców!</p>
           </div>
-          <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+           -->
+          <div class="col-lg-6 col-md-4 mb-5 mb-md-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
                <a class="link-unstyled" th:href='hydepark'><i class="icon-globe"></i></a>
             </span>
             <h4>
               <strong>Hydepark</strong>
             </h4>
-            <p class="text-faded mb-0">Napisz coś od siebie!</p>
+            <p class="text-faded mb-2">Become a music journalist!</p>
           </div>
+
+		<div class="col-lg-12 col-md-4 mb-5 mb-md-0" sec:authorize="isAuthenticated()">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+               <a class="link-unstyled" th:href='selectedbands'><i class="icon-globe"></i></a>
+            </span>
+            <h4>
+              <strong>Playlist Creator</strong>
+            </h4>
+            <p class="text-faded mb-2">Create awesome music playlists!</p>
+          </div>
+
 
       </div>
       </div>

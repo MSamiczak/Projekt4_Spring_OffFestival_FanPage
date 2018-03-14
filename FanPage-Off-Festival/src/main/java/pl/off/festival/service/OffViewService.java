@@ -44,13 +44,17 @@ public class OffViewService {
 		return offViewRepository.findAll();
 	}
 	
+	public Page<Offview> getAllPage(Pageable pageable) {
+		return offViewRepository.findAll(pageable);
+	}
+	
 	
 //	public Page<Offview> getByYear(Pageable pageable) {
 //		
 //		return offViewRepository.findByYear(2010, pageable);
 //	}
 	
-	/*public Page<Offview> getByFilter(BandsFilter bandsFilter, Pageable pageable) {
+	public Page<Offview> getByFilterPage(BandsFilter bandsFilter, Pageable pageable) {
 
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Offview> query = criteriaBuilder.createQuery(Offview.class);
@@ -61,21 +65,21 @@ public class OffViewService {
 		Optional.ofNullable(bandsFilter.getYear()).filter(year -> !year.isEmpty())
 		.ifPresent(year -> criteria.add(criteriaBuilder.like(offQ.get("year"), year)));
 		
-		if (bandsFilter.getName_band() != null && !bandsFilter.getName_band().isEmpty()) {
-			criteria.add(criteriaBuilder.like(offQ.get("name_band"), "%" + bandsFilter.getName_band() + "%"));
-		}
-		
-		if (bandsFilter.getTag() != null && !bandsFilter.getTag().isEmpty()) {
-			criteria.add(criteriaBuilder.like(offQ.get("tag"), "%" + bandsFilter.getTag() + "%"));
-		}
-		
-		if (bandsFilter.getSince() != null && !bandsFilter.getSince().isEmpty()) {
-			criteria.add(criteriaBuilder.like(offQ.get("since"), "%" + bandsFilter.getSince() + "%"));
-		}
-		
-		if (bandsFilter.getCountry() != null && !bandsFilter.getCountry().isEmpty()) {
-			criteria.add(criteriaBuilder.like(offQ.get("country"), "%" + bandsFilter.getCountry() + "%"));
-		}
+//		if (bandsFilter.getName_band() != null && !bandsFilter.getName_band().isEmpty()) {
+//			criteria.add(criteriaBuilder.like(offQ.get("name_band"), "%" + bandsFilter.getName_band() + "%"));
+//		}
+//		
+//		if (bandsFilter.getTag() != null && !bandsFilter.getTag().isEmpty()) {
+//			criteria.add(criteriaBuilder.like(offQ.get("tag"), "%" + bandsFilter.getTag() + "%"));
+//		}
+//		
+//		if (bandsFilter.getSince() != null && !bandsFilter.getSince().isEmpty()) {
+//			criteria.add(criteriaBuilder.like(offQ.get("since"), "%" + bandsFilter.getSince() + "%"));
+//		}
+//		
+//		if (bandsFilter.getCountry() != null && !bandsFilter.getCountry().isEmpty()) {
+//			criteria.add(criteriaBuilder.like(offQ.get("country"), "%" + bandsFilter.getCountry() + "%"));
+//		}
 		
 
 		CriteriaQuery<Offview> select = query.select(offQ).where(criteria.toArray(new Predicate[criteria.size()]));
@@ -95,7 +99,7 @@ public class OffViewService {
 		Page<Offview> page = new PageImpl<>(resultOff, pageable, total);
 
 		return page;
-	}*/
+	}
 	
 	public List<Offview> getByFilter(BandsFilter bandsFilter) {
 

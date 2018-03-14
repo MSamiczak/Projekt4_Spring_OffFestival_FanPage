@@ -1,72 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/headerinc :: head" />
 <meta charset="utf-8" />
-
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"
-	type="text/css" rel="stylesheet" />
-
 
 
 <body id="page-top">
 	<!-- Navigation -->
 	<header th:replace="fragments/header :: header"></header>
+	
+	
+	<div class="container text-center my-top">
+			<h1  class="mb-1 mt-3">Great DataBase of OffFestival Bands</h1>
+			<br/>
+			<h3 sec:authorize="isAuthenticated()"  class="mb-1 mt-7">Search for your best and add to your own Playlist DataBase!</h3>
+			
+			<h3 sec:authorize="!isAuthenticated()" class="mb-1 mt-3"><u>Register to use awesome Playlist Creator!</u></h3>
+			</div>		
+			
+			
+			
+			<br/>
+			<br/>
 
-
-	<form th:action="@{/listofallbands}" method="post"
-		th:object="${filter}">
-		<div class="form-group">
-			Name Band:<input type="text" id="own" th:field="*{name_band}"
+	<form th:action="@{/listofallbands}" method="post" th:object="${filter}">
+		<div class="masthead-search">
+			Name Band:<input type="text" size="15" id="own" th:field="*{name_band}"
 				placeholder="Search for Band.." />
 				
 			Music Genre: <input type="text"
-				id="own" th:field="*{tag}" placeholder="Search for Music Genre.." />
+				size="15" id="own" th:field="*{tag}" placeholder="Search for Music Genre.." />
 				
-			Country: <input type="text" id="own" th:field="*{country}"
+			Country: <input type="text" size="15" id="own" th:field="*{country}"
 				placeholder="Search for Band from..{e.g. PL, GER}" /> 
 				
 			Since: <input
-				type="text" id="own" th:field="*{since}"
+				type="text" size="15" id="own" th:field="*{since}"
 				placeholder="Search for Bands founded Since..{e.g. 1990}" /> 
 				
 			<br />
 			<br />
-			
-			
-			
-			
-			
+			<div class="container text-center">
 			<button type="submit" class="btn btn-primary">Search</button>
+			</div>
 		</div>
-		
-
 	</form>
 	
 	
-	<ul class="list-unstyled">
-			<li><span class="year">Discover</span>
-				<form class="inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+	<div class="list-unstyled">
+			<span class="year">Check most popular music genres</span>
+			<br/>
+			<div class="mb-3" id="genres">
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
 				<input type="hidden" name="tag" value='rock' />
-				<button type="submit" class="btn btn-link">Rock</button></form></li>
-	
-		</ul>
+				<button type="submit" class="btn btn-link">Rock</button></form>
+				
+				
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<input type="hidden" name="tag" value='alternative' />
+				<button type="submit" class="btn btn-link">Alternative</button></form>
+				
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<input type="hidden" name="tag" value='electronic' />
+				<button type="submit" class="btn btn-link">Electronic</button></form>
+				
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<input type="hidden" name="tag" value='experimental' />
+				<button type="submit" class="btn btn-link">Experimental</button></form>
+				
+				
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<input type="hidden" name="tag" value='shoegaze' />
+				<button type="submit" class="btn btn-link">Shoegaze</button></form>
+				
+		</div>
+		</div>
 
+				<div class="container text-center">
+			<span class="help-block">Point at table row to select band.<br/>
+			You can see chosen bands below the main table.</span>
 			<br />
 			<br />
 
 
 
-
-
-	<div class="container">
-
-		<div class="form-group">
-			<div class="post-preview">
-				<table id="table1" class="table col-sm-12 table-striped table-fixed">
-					<tr class="container ">
+			<div class="row">
+				<div class="col-lg-10 col-md-3 mx-auto">
+					<div class="table-preview">
+		<table id="table1" class="table">
+		<thead>
+		<tr class="container text-center">
 						<th>id</th>
 						<th>Name Band</th>
 						<th>City</th>
@@ -79,6 +102,7 @@
 						<th>Off Festival</th>
 
 					</tr>
+					</thead>
 					<tr th:each="band : ${bands}">
 						<td th:text="${band.id_band}" />
 						<td th:text="${band.name_band}" />
@@ -94,13 +118,14 @@
 
 					</tr>
 				</table>
-
-				<span class="help-block">You can select with <b>Ctrl</b>, <b>Shift</b>,
-					<b>Common</b> Or <b>Ctrl + A</b></span>
+				
+				
+				
+				</div>
 
 				<div class="form-group">
-					<div class="col-sm-12">
-						<h2 class="text-center">Select Items</h2>
+					<div class="mt-4 col-sm-12">
+						<h2 class="text-center">Selected Item</h2>
 					</div>
 				</div>
 
@@ -121,7 +146,8 @@
 					<input type="hidden" name="yearS" id="year" />
 
 					<p>
-						<input type="submit" id="bt" value="Add to DB" />
+						<input sec:authorize="isAuthenticated()" class="mb-5 mt-5 btn btn-primary btn-xl js-scroll-trigger" 
+						type="submit" id="bt" value="Add to Playlist Creator!" />
 					</p>
 
 				</form>

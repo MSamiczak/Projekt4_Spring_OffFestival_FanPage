@@ -462,6 +462,7 @@ a:active, a:focus, a:hover {
 .btn-link{
 	
 	background: none;
+
 }
 
 
@@ -469,10 +470,10 @@ a:active, a:focus, a:hover {
 width: 97%;
 }
 .table-fixed tbody {
-height: 230px;
+height: 400px;
 overflow-x: auto;
 overflow-y: auto;
-width: 99%;
+width: 100%;
 }
 .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
 display: inline-block; 
@@ -482,4 +483,45 @@ display: inline-block;
 border-bottom-width: 0;
 }
 
+.table-preview{
+	
+font-size: 0.9rem;
+margin-right: 0.5rem;	
+height: 400px;
+overflow-x: auto;
+overflow-y: auto;
+width: 110%;
+}
 
+
+.masthead-search {
+
+	font-size: 1.1rem;
+	font-weight: 700;
+	position: center;
+	width: 100%;
+	height: auto;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	text-align: center;
+}
+
+#own {
+
+	font-size: 1.1rem;
+	font-style: normal;
+	font-weight: 300;
+	text-allign:left;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	
+}
+
+#genres{
+	position: left;
+}
+
+#tools{
+	font-size: 1.5rem;
+	
+}

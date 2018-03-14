@@ -26,7 +26,7 @@ public class OffSelectedBands {
 	private String cityS;
 	private String countryS;
 	private String tagS;
-	private int sinceS;
+	private String sinceS;
 	private float listeners_kiloS;
 	private String name_albumS;
 	private String best_songS;
@@ -34,7 +34,7 @@ public class OffSelectedBands {
 	private String login;
 
 	public OffSelectedBands(int id_table, int id_bandS, String name_bandS, String cityS, String countryS, String tagS,
-			int sinceS, float listeners_kiloS, String name_albumS, String best_songS, String yearS, String login) {
+			String sinceS, float listeners_kiloS, String name_albumS, String best_songS, String yearS, String login) {
 		this.id_table = id_table;
 		this.id_bandS = id_bandS;
 		this.name_bandS = name_bandS;
@@ -80,10 +80,10 @@ public class OffSelectedBands {
 	public void setTagS(String tagS) {
 		this.tagS = tagS;
 	}
-	public int getSinceS() {
+	public String getSinceS() {
 		return sinceS;
 	}
-	public void setSinceS(int sinceS) {
+	public void setSinceS(String sinceS) {
 		this.sinceS = sinceS;
 	}
 	public float getListeners_kiloS() {
