@@ -122,7 +122,12 @@
 			
 			</table>
 
-			<div class="listOfAll"><a th:href='listofallbands'>All list of Artists</a>&#10140;</div>
+		<!-- 	<div class="listOfAll"><a th:href='listofallbands'>All list of Artists</a>&#10140;</div> -->
+		
+		<span class="year">All list of Artists</span><br/>
+				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
+				<input type="hidden" name="year" value='' />
+				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form>
 
 						<a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">Next</a>
 
@@ -173,7 +178,7 @@
             <p class="text-faded mb-2">Buduj bibliotekę wykonawców!</p>
           </div>
            -->
-          <div class="col-lg-6 col-md-4 mb-5 mb-md-0">
+          <!-- <div class="col-lg-6 col-md-4 mb-5 mb-md-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
                <a class="link-unstyled" th:href='hydepark'><i class="icon-globe"></i></a>
             </span>
@@ -181,16 +186,22 @@
               <strong>Hydepark</strong>
             </h4>
             <p class="text-faded mb-2">Become a music journalist!</p>
-          </div>
+          </div> -->
 
-		<div class="col-lg-12 col-md-4 mb-5 mb-md-0" sec:authorize="isAuthenticated()">
+		<div class="col-lg-6 col-md-4 mb-5 mb-md-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
-               <a class="link-unstyled" th:href='selectedbands'><i class="icon-globe"></i></a>
+           
+              <a sec:authorize="isAuthenticated()" class="link-unstyled" th:href='selectedbands'>
+              <i class="icon-puzzle"></i></a>
+         
             </span>
+
             <h4>
-              <strong>Playlist Creator</strong>
+              <strong>Playlist Creator</strong><br/>
+              <span class="text-secondary mb-2" sec:authorize="!isAuthenticated()" >Please Register to use this feature</span>
             </h4>
             <p class="text-faded mb-2">Create awesome music playlists!</p>
+            
           </div>
 
 

@@ -31,7 +31,7 @@ public class AllBandsController {
 	
 
 	@Autowired
-	public AllBandsController(OffViewService offViewService, OffSelectedBandsService offSelectedBandsService, UserService userService) {
+	public AllBandsController(OffViewService offViewService, OffSelectedBandsService offSelectedBandsService) {
 		this.offViewService = offViewService;
 		this.offSelectedBandsService = offSelectedBandsService;
 	}
@@ -46,14 +46,15 @@ public class AllBandsController {
 	
 	
 	@GetMapping("/listofallbands")
-	public String bands(@ModelAttribute BandsFilter bandsFilter, Model model, Pageable pageable) {
+	public String bands(@ModelAttribute BandsFilter bandsFilter, Model model, Pageable pageable, OffSelectedBands offSelectedBands) {
+		
 		
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String login = auth.getName(); //get logged in username
 		
 		System.out.println(login);
-		 
+		
 //		Page<Offview> pageOff = offViewService.getAll(pageable);
 //		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
 		

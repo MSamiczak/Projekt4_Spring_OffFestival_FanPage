@@ -14,5 +14,6 @@ public interface OffSelectedBandsRepository extends JpaRepository<OffSelectedBan
 	
 //	@Query("select s.name_band from OffSelectedBands s where s.login= 'Admin@22.pl'")
 	List<OffSelectedBands> findByLogin(String login);
+	
 
 }

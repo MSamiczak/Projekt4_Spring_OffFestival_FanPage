@@ -47,29 +47,36 @@ public class OffSelectedBandsService {
 
 		return offSelectedBandsRepository.save(select);
 	}
-	
-	
-	public List<OffSelectedBands> addSelectBandsList(OffSelectedBands select, String login) {
-
-		List<OffSelectedBands> list = new ArrayList<OffSelectedBands>();
-		
-		
-		select.setLogin(login);
-		select.setId_bandS(select.getId_bandS());
-		select.setName_bandS(select.getName_bandS());
-		select.setCityS(select.getCityS());
-		select.setCountryS(select.getCountryS());
-		select.setTagS(select.getTagS());
-		select.setSinceS(select.getSinceS());
-		select.setListeners_kiloS(select.getListeners_kiloS());
-		select.setName_albumS(select.getName_albumS());
-		select.setBest_songS(select.getBest_songS());
-		select.setYearS(select.getYearS());
-		
-		list.add(select);
-
-		return offSelectedBandsRepository.save(list);
-	}
+//	
+//	
+//	public List<OffSelectedBands> addSelectBandsList(String login) {
+//
+//		List<OffSelectedBands> selects = new ArrayList<OffSelectedBands>();
+//		
+//		OffSelectedBands select = new OffSelectedBands();
+//		
+//
+//
+//		
+//		select.setLogin(login);
+//		select.setId_bandS(select.getId_bandS());
+//		select.setName_bandS(select.getName_bandS());
+//		select.setCityS(select.getCityS());
+//		select.setCountryS(select.getCountryS());
+//		select.setTagS(select.getTagS());
+//		select.setSinceS(select.getSinceS());
+//		select.setListeners_kiloS(select.getListeners_kiloS());
+//		select.setName_albumS(select.getName_albumS());
+//		select.setBest_songS(select.getBest_songS());
+//		select.setYearS(select.getYearS());
+//		selects.add(select);
+//		
+//		
+//		
+//		
+//		return offSelectedBandsRepository.save(selects);
+//	
+//	}
 	
 
 

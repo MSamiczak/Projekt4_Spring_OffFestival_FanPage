@@ -21,9 +21,10 @@
 
 <div class="container text-center">
 
+
 			<div class="row">
 				<div class="col-lg-10 col-md-3 mx-auto">
-					<div class="table-preview">
+					<div class="table-previewP">
 		<table class="table">
 		<thead>
 		<tr class="container text-center">
@@ -41,7 +42,7 @@
 		</thead>
 		
 		<tbody>
-		<tr th:each="band : ${bands}">
+		<tr th:each="band : ${bands}" >
 		<td th:text="${band.year}" />
 		<td th:text="${band.name_band}" />
 		<td th:text="${band.city}" />
@@ -58,9 +59,11 @@
 		</tbody>
 	</table>
 	
-	<!-- <div class="container text-center my-bottom mt-5">
+	 <div class="container text-center my-bottom mt-5">
 	<div  th:replace="fragments/paginationbar :: paginationbar"></div>
-	</div>  -->
+	</div> 
+	
+	
 				</div>
 	</div>
 	</div>
@@ -71,6 +74,7 @@
 	
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
+	<a class="mb-5 mt-5 btn btn-primary btn-xl js-scroll-trigger" href="/#about">Home</a>
 
 </body>
 
