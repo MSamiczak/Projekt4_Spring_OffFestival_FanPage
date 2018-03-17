@@ -153,7 +153,8 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 				</form>
 				<p id="info"></p>
 
-				<div class="container text-center my-bottom mt-5"></div>
+				<div class="container text-center my-bottom mt-5">
+				<a class="mb-5 mt-5 btn btn-primary btn-xl js-scroll-trigger" href="/#services">Home</a></div>
 			</div>
 		</div>
 	</div>
@@ -161,49 +162,6 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
-
-
-
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="js/multiselect.js" type="text/javascript"></script>
-
-	<script type="text/javascript">
-		$(function() {
-			$('#table1').multiSelect(
-					{
-						actcls : 'info',
-						selector : 'tbody tr',
-						except : [ 'tbody' ],
-						statics : [ '.danger', '[data-no="1"]' ],
-						callback : function(items) {
-							$('#table2').empty().append(items.clone().removeClass('info').addClass('success'));
-						}
-					});
-
-		})
-	</script>
-
-	<script type="text/javascript">
-		//<![CDATA[ 
-		var table = document.getElementById('table1');
-
-		for (var i = 0; i < table.rows.length; i++) {
-			table.rows[i].onclick = function() {
-				//rIndex = this.rowIndex;
-				document.getElementById('id_band').value = this.cells[0].innerHTML;
-				document.getElementById('name_band').value = this.cells[1].innerHTML;
-				document.getElementById('city').value = this.cells[2].innerHTML;
-				document.getElementById('country').value = this.cells[3].innerHTML;
-				document.getElementById('tag').value = this.cells[4].innerHTML;
-				document.getElementById('since').value = this.cells[5].innerHTML;
-				document.getElementById('listeners_kilo').value = this.cells[6].innerHTML;
-				document.getElementById('name_album').value = this.cells[7].innerHTML;
-				document.getElementById('best_song').value = this.cells[8].innerHTML;
-				document.getElementById('year').value = this.cells[9].innerHTML;
-			};
-		}
-		//]]>
-	</script>
 
 
 </body>

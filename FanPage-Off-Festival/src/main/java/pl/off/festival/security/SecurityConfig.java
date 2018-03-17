@@ -23,11 +23,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		auth.jdbcAuthentication().usersByUsernameQuery("SELECT email, password, active FROM user where email=?")
+		auth.jdbcAuthentication().usersByUsernameQuery("SELECT login, password, active FROM user where login=?")
 				.authoritiesByUsernameQuery(
-						"SELECT u.email, r.role FROM user u " 
+						"SELECT u.login, r.role FROM user u " 
 								+ "inner join role r on r.id=u.role_id " 
-								+ "where u.email=?")
+								+ "where u.login=?")
 				.dataSource(dataSource)
 				.passwordEncoder(bCryptPasswordEncoder);
 	}
@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.anyRequest().permitAll()
 			.and()
 			.formLogin().loginPage("/login").failureUrl("/login?error=true").defaultSuccessUrl("/")
-			.usernameParameter("email")
+			.usernameParameter("login")
 			.passwordParameter("password")
 			.and()
 			.logout().logoutUrl("/logout").logoutSuccessUrl("/");

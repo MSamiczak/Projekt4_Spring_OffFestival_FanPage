@@ -4,136 +4,75 @@
 <meta charset="utf-8" />
 
 
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
 <body id="page-top">
 	<!-- Navigation -->
 	<header th:replace="fragments/header :: header"></header>
 
- <div class="container text-center">
+	<div class="container text-center">
 
-			<div class="row">
-				<div class="col-lg-10 col-md-3 mx-auto">
-					<div class="table-preview">
-		<table id="table1" class="table">
-		<thead>
-		<tr class="container text-center">
-		
-			<th>id_band</th>
-			<th>Name Band</th>
-			<th>City</th>
-			<th>Country</th>
-			<th>Tag</th>
-			<th>Since</th>
-			<th>Listeners</th>
-			<th>Best Album</th>
-			<th>Best Song</th>
-			<th>Off Festival</th>
-			<th>Login</th>
-			<th>Edit</th>
+		<div class="row">
+			<div class="col-lg-10 col-md-3 mx-auto">
+				<div class="table-preview">
+					<table id="table1" class="table">
+						<thead>
+							<tr class="container text-center">
+
+								<th>id_band</th>
+								<th>Name Band</th>
+								<th>City</th>
+								<th>Country</th>
+								<th>Tag</th>
+								<th>Since</th>
+								<th>Listeners</th>
+								<th>Best Album</th>
+								<th>Best Song</th>
+								<th>Off Festival</th>
+								<th>Login</th>
+								<th>Edit</th>
+
+							</tr>
+						</thead>
+						<tr th:each="band : ${choice}">
+							<td th:text="${band.id_bandS}" />
+							<td th:text="${band.name_bandS}" />
+							<td th:text="${band.cityS}" />
+							<td th:text="${band.countryS}" />
+							<td th:text="${band.tagS}" />
+							<td th:text="${band.sinceS}" />
+							<td th:text="${band.listeners_kiloS}" />
+							<td th:text="${band.name_albumS}" />
+							<td th:text="${band.best_songS}" />
+							<td th:text="${band.yearS}" />
+							<td th:text="${band.login}" />
+							<td><a th:href="${'delete/'+band.id_table}"><b>Delete</b></a></td>
+
+						</tr>
+					</table>
+
+					<span id="val"></span>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container text-center my-bottom mt-5">
+		<a class="col-lg-3 mt-3 btn btn-dark btn-xl js-scroll-trigger"
+			href="#" id="save-link">Download</a> 
 			
-		</tr>
-		</thead>
-		<tr th:each="band : ${choice}">
-		<td th:text="${band.id_bandS}" /> 
-		<td th:text="${band.name_bandS}" />
-		<td th:text="${band.cityS}" />
-		<td th:text="${band.countryS}" />
-		<td th:text="${band.tagS}" />
-		<td th:text="${band.sinceS}" />
-		<td th:text="${band.listeners_kiloS}" />
-		<td th:text="${band.name_albumS}" />
-		<td th:text="${band.best_songS}" />
-		<td th:text="${band.yearS}" />
-		<td th:text="${band.login}" />
-		<td><a th:href="${'delete/'+band.id_table}"><b>Delete</b></a></td>
-		 
-		</tr>
-	</table>
+			<a class="col-lg-3 mt-3 btn btn-primary btn-xl js-scroll-trigger"
+			href="#" id="playlist-link">Playlist</a> 
+			
+	</div>		
+	<div class="container text-center my-bottom mt-5">
+			<a class="mb-5 mt-5 btn btn-primary btn-xl js-scroll-trigger"
+			href="/#services">Home</a>
+				
+	</div>
 	
-
-	
-	<span id="val"></span>
-
-<a href="#" id="save-link">Download</a>
-
-<a href="#" id="playlist-link">Playlist</a>
-	
-	
-	
-</div>
-</div></div>
-</div>
 	
 	<!-- Footer -->
 	<div th:replace="fragments/footer :: footer"></div>
-	
-	
-<script type="text/javascript">
-//<![CDATA[ 
-$('#save-link').click(function ()
-{
-  var retContent = [];
-  var retString = '';
-  $('tbody tr').each(function (idx, elem)
-
-  {
-    var elemText = [];
-    $(elem).children('td').each(function (childIdx, childElem)
-    {
-      elemText.push($(childElem).text());
-    });
-    retContent.push(`${elemText.join('-')}`);
-  });
-  retString = retContent.join('\r\n');
-	var file = new Blob([retString], {type: 'text/plain'});
-  var btn = $('#save-link');
-  btn.attr("href", URL.createObjectURL(file));
-  btn.prop("download", "data.txt");
-  var Row = document.getElementById("a");
- 	var Cells = Row.getElementsByTagName("td");
-
-})
-
-//]]>
-</script>
-
-
-
-<script type="text/javascript">
-//<![CDATA[ 
-$('#playlist-link').click(function ()
-{
-
-
-  var table = document.getElementById("table1");
-
-  var sumVal = "";
-
-  for(var i = 1; i < table.rows.length; i++)
-  {
-
-      sumVal = sumVal+ table.rows[i].cells[1].innerHTML+ " - "+ table.rows[i].cells[8].innerHTML +'\n';
-
-  }
-
-  var myUrl = sumVal;
-  var encodedURL = "http://www.playlist-converter.net/#/freetext=" +encodeURIComponent(myUrl);
-
-	window.location.href = encodedURL;
-
-
-})
-//]]>
-</script>
-	
-	
-	
-	
-	
 
 
 </body>

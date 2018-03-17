@@ -26,7 +26,7 @@ public class IndexController {
 	}
 
 	@GetMapping("/")
-	public String about(Model model) {
+	public String index(Model model) {
 
 		model.addAttribute("filter", new BandsFilter());
 		return "index";
@@ -46,5 +46,11 @@ public class IndexController {
 
 		return "listofallbands";
 
+	}
+	
+	@GetMapping("/about")
+	public String about(Model model) {
+
+		return "about";
 	}
 }

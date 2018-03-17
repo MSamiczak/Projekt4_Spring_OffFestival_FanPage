@@ -1,4 +1,3 @@
-
 (function ($) {
     $.fn.multiSelect = function (options) {
         $.fn.multiSelect.init($(this), options);
@@ -60,8 +59,8 @@
                             $(this).addClass(actcls);
                         }
                     });
-                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
-                } else if (!e.ctrlKey && !e.metaKey) {
+                   window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+                } else if (!e.ctrlKey && !e.metaKey){
                     $(this).siblings().removeClass(actcls);
                 }
                 self.last = $(this);
@@ -86,7 +85,7 @@
             /**
              * Ctrl+A
              */
-            $(document).on('keydown.mSelect', function (e) {
+            /*$(document).on('keydown.mSelect', function (e) {
                 if ((e.keyCode == 65) && (e.metaKey || e.ctrlKey)) {
                     $(options.selector, scope).each(function () {
                         if (!self.checkStatics($(this))) {
@@ -98,7 +97,7 @@
                     return false;
                 }
             });
-
+*/
             $(document).on('keyup.mSelect', function (e) {
                 if (e.keyCode == 16) {
                     self.first = null;

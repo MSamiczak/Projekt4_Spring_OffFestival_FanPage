@@ -9,22 +9,15 @@
 	<header th:replace="fragments/header :: header"></header>
 
 	<!-- Page Header -->
-	<header class="masthead"
-		style="background-image: url('img/home-bg.jpg')">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
-					<div class="site-heading">
-						<h1>Registration</h1>
-					</div>
-				</div>
-			</div>
+	<header class="mastheadSecondary d-flex">
+		<div class="container text-center my-top">
+			<h1 class="mb-1">Registration</h1>
+
 		</div>
+		<div class="overlay"></div>
 	</header>
-
-
-	<div class="container">
+	
+	<div class="mt-5 container">
 		<div class="row">
 
 			<div class="col-lg-8 col-md-10 mx-auto">
@@ -32,6 +25,16 @@
 				<span th:utext="${success}"></span>
 
 				<form th:action="@{/registration}" method="post" th:object="${user}">
+				
+				<div class="control-group">
+						<div class="form-group floating-label-form-group controls">
+							<label>Login</label> <input type="text" th:field="*{login}"
+								class="form-control" placeholder="Login" id="login" />
+							<p class="help-block text-danger"></p>
+						</div>
+						<label th:if="${#fields.hasErrors('login')}" th:errors="*{login}"
+							class="help-block text-danger"></label>
+					</div>
 
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls">
@@ -55,29 +58,9 @@
 							th:errors="*{password}" class="help-block text-danger"></label>
 					</div>
 
-					<div class="control-group">
-						<div class="form-group floating-label-form-group controls">
-							<label>Login</label> <input type="text" th:field="*{login}"
-								class="form-control" placeholder="Login" id="login" />
-							<p class="help-block text-danger"></p>
-						</div>
-						<label th:if="${#fields.hasErrors('login')}" th:errors="*{login}"
-							class="help-block text-danger"></label>
-					</div>
-
-					<!-- <div class="control-group">
-						<div class="form-group floating-label-form-group controls">
-							<label>Last name</label> <input type="text"
-								th:field="*{lastName}" class="form-control"
-								placeholder="Last name" id="lastName" />
-							<p class="help-block text-danger"></p>
-						</div>
-						<label th:if="${#fields.hasErrors('lastName')}"
-							th:errors="*{lastName}" class="help-block text-danger"></label>
-					</div> -->
-
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary" id="regButton">Registration</button>
+					<div class="form-group container text-center my-bottom">
+			
+						<button type="submit" class="mb-5 mt-5 btn btn-primary btn-xl js-scroll-trigger" id="regButton">Registration</button>
 					</div>
 
 				</form>
