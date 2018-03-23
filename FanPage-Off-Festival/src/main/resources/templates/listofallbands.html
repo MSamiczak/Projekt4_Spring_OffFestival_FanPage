@@ -51,25 +51,25 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 			<span class="year">Check most popular music genres</span>
 			<br/>
 			<div class="mb-3" id="genres">
-				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="get" th:object="${filter.tag}">
 				<input type="hidden" name="tag" value='rock' />
 				<button type="submit" class="btn btn-link">Rock</button></form>
 				
 				
-				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="get" th:object="${filter.tag}">
 				<input type="hidden" name="tag" value='alternative' />
 				<button type="submit" class="btn btn-link">Alternative</button></form>
 				
-				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="get" th:object="${filter.tag}">
 				<input type="hidden" name="tag" value='electronic' />
 				<button type="submit" class="btn btn-link">Electronic</button></form>
 				
-				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="get" th:object="${filter.tag}">
 				<input type="hidden" name="tag" value='experimental' />
 				<button type="submit" class="btn btn-link">Experimental</button></form>
 				
 				
-				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="post" th:object="${filter.tag}">
+				<form class="mr-2 inline form-unstyled" th:action="@{/listofallbands}" method="get" th:object="${filter.tag}">
 				<input type="hidden" name="tag" value='shoegaze' />
 				<button type="submit" class="btn btn-link">Shoegaze</button></form>
 				

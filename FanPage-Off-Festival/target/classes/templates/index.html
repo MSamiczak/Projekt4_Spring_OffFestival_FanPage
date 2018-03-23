@@ -158,7 +158,7 @@
         </div>
         
         <div class="row">
-          <div class="col-lg-6 col-md-4 mb-5 mb-lg-0">
+          <div class="col-lg-4 col-md-4 mb-5 mb-lg-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
               <a class="link-unstyled" href="listofallbands"><i class="icon-rocket"></i></a>
             </span>
@@ -168,16 +168,6 @@
             <p class="text-faded mb-2">Choose your favorites Artists!</p>
           </div>
 		  
-         <!--  <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <a  class="link-unstyled" href="#"> <i class="icon-briefcase"></i></a>
-            </span>
-            <h4>
-              <strong>Dodaj Wykonawcę</strong>
-            </h4>
-            <p class="text-faded mb-2">Buduj bibliotekę wykonawców!</p>
-          </div>
-           -->
           <!-- <div class="col-lg-6 col-md-4 mb-5 mb-md-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
                <a class="link-unstyled" th:href='hydepark'><i class="icon-globe"></i></a>
@@ -188,30 +178,66 @@
             <p class="text-faded mb-2">Become a music journalist!</p>
           </div> -->
 
-		<div class="col-lg-6 col-md-4 mb-5 mb-md-0">
+		<div class="col-lg-4 col-md-4 mb-5 mb-md-0">
             <span class="service-icon rounded-circle mx-auto mb-3">
            
-              <a sec:authorize="isAuthenticated()" class="link-unstyled" th:href='selectedbands'>
-              <i class="icon-puzzle"></i></a>
+              <a  sec:authorize="isAuthenticated()" class="link-unstyled" th:href='selectedbands'>
+              <i class="icon-magic-wand"></i></a><i sec:authorize="!isAuthenticated()" class="icon-magic-wand"></i>
          
             </span>
-            
-            
-            
-            
-            
+  
             <h4>
               <strong>Playlist Creator</strong><br/>
-              <span class="text-secondary mb-2" sec:authorize="!isAuthenticated()" >Please Register to use this feature</span>
+              <span class="text-secondary mb-2" sec:authorize="!isAuthenticated()" >Please Register to use this feature<br/></span>
             </h4>
             <p class="text-faded mb-2">Create music playlist!</p>
-            
           </div>
+          
+          
+          
+          <div class="col-lg-4 col-md-4 mb-5 mb-lg-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <a sec:authorize="isAuthenticated()" class="link-unstyled" href="bandsQueue"><i class="icon-layers"></i></a>
+              <i sec:authorize="!isAuthenticated()" class="icon-layers"></i>
+            </span>
+            <h4>
+              <strong>Library</strong><br/>
+              <span class="text-secondary mb-2" sec:authorize="!isAuthenticated()" >Please Register to use this feature<br/></span>
+            </h4>
+            <p class="text-faded mb-2">Our artists library isn't perfect?<br/>Help to improve it and add bands to Database! </p>
+          </div>
+          
+          
+          
+          <div class="col-lg-12 col-md-4 mb-5 mb-lg-0" sec:authorize="hasAuthority('Admin')">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <a  class="link-unstyled" href="admin/bandsQueueAdmin">
+              <i class="icon-settings"></i></a>
+            </span>
+            <h4>
+              <strong>Bands Queue</strong>
+            </h4>
+            <p class="text-faded mb-2">Accept or do not bands from queue!</p>
+          </div>
+          
+          
 
 
       </div>
       </div>
     </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     <header th:replace="fragments/footer :: footer"></header>

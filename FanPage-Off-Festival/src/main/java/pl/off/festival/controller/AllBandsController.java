@@ -56,9 +56,9 @@ public class AllBandsController {
 		System.out.println(login);
 		
 //		Page<Offview> pageOff = offViewService.getAll(pageable);
-//		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
+		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
 		
-		List<Offview> pageOff = offViewService.getAll();
+//		List<Offview> pageOff = offViewService.getAll();
 //		List<Offview> pageOff = offViewService.getAll();
 		model.addAttribute("bands", pageOff);
 //		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "/listofallbands");
