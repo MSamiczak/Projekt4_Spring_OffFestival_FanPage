@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" 
- xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/headerinc :: head" />
 <meta charset="utf-8" />
 
-	
+
 
 
 <body id="page-top">
@@ -33,214 +33,254 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<div class="post-preview">
 
-		 	 <table class="table">
-			<td>
-			<ul class="list-unstyled">
+						<table class="table">
+							<td>
+								<ul class="list-unstyled">
 
-				<li><span class="year">2017</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2017' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>
-	
-				<li><span class="year">2016</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2016' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>		
-				
-				<li><span class="year">2015</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2015' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>		
-				
-				<li><span class="year">2014</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2014' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>
-		
-			</ul>
-			
-			</td>
-			
-				<td>
-			<ul class="list-unstyled">
-				<li><span class="year">2013</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2013' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>
-						
-				<li><span class="year">2012</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2012' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>		
-				
-				<li><span class="year">2011</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2011' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>		
-				
-				<li><span class="year">2010</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2010' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>
-											
-			</ul>
-			
-			</td>
-			
-			<td>
-			<ul class="list-unstyled">
-				<li><span class="year">2009</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2009' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>
-						
-				<li><span class="year">2008</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2008' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>		
-				
-				<li><span class="year">2007</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2007' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>		
-				
-				<li><span class="year">2006</span>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='2006' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form></li>
-				
-			</ul>
-			
-			</td>
-			
-			
-			</table>
+									<li><span class="year">2017</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2017' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
 
-		<!-- 	<div class="listOfAll"><a th:href='listofallbands'>All list of Artists</a>&#10140;</div> -->
-		
-		<span class="year">Show all</span><br/>
-				<form class="inline form-unstyled" th:action="@{/bandsbyyears}" method="post" th:object="${filter.year}">
-				<input type="hidden" name="year" value='' />
-				<button type="submit" class="btn btn-link">Artists / Top Songs</button></form><br/>
+									<li><span class="year">2016</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2016' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
 
-						<a class="mt-3 btn btn-dark btn-xl js-scroll-trigger" href="#services">Next</a>
+									<li><span class="year">2015</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2015' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2014</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2014' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+								</ul>
+
+							</td>
+
+							<td>
+								<ul class="list-unstyled">
+									<li><span class="year">2013</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2013' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2012</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2012' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2011</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2011' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2010</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2010' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+								</ul>
+
+							</td>
+
+							<td>
+								<ul class="list-unstyled">
+									<li><span class="year">2009</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2009' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2008</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2008' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2007</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2007' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+									<li><span class="year">2006</span>
+										<form class="inline form-unstyled"
+											th:action="@{/bandsbyyears}" method="post"
+											th:object="${filter.year}">
+											<input type="hidden" name="year" value='2006' />
+											<button type="submit" class="btn btn-link">Artists /
+												Top Songs</button>
+										</form></li>
+
+								</ul>
+
+							</td>
 
 
+						</table>
+
+
+						<span class="year">Show all</span><br />
+						<form class="inline form-unstyled" th:action="@{/bandsbyyears}"
+							method="post" th:object="${filter.year}">
+							<input type="hidden" name="year" value='' />
+							<button type="submit" class="btn btn-link">Artists / Top
+								Songs</button>
+						</form>
+						<br /> <a class="mt-3 btn btn-dark btn-xl js-scroll-trigger"
+							href="#services">Next</a>
 
 					</div>
 				</div>
 			</div>
 
-
-
-
-
 		</div>
 	</section>
- 
+
 
 	<!-- Main Content -->
 
 
 	<!-- Services -->
-	
-	<section class="content-section bg-primary text-white text-center" id="services">
-      <div class="container">
-        <div class="content-section-heading">
-          <h2 class="text-secondary mb-2">Tools</h2>
-          <p class="lead mb-5">Discover PlayOFF Creator or say: 'Hello World'!</p>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-4 col-md-4 mb-5 mb-lg-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <a class="link-unstyled" href="listofallbands"><i class="icon-rocket"></i></a>
-            </span>
-            <h4>
-              <strong>Music</strong>
-            </h4>
-            <p class="text-faded mb-2">Choose your favorites Artists!</p>
-          </div>
-		  
-          <!-- <div class="col-lg-6 col-md-4 mb-5 mb-md-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-               <a class="link-unstyled" th:href='hydepark'><i class="icon-globe"></i></a>
-            </span>
-            <h4>
-              <strong>Hydepark</strong>
-            </h4>
-            <p class="text-faded mb-2">Become a music journalist!</p>
-          </div> -->
 
-		<div class="col-lg-4 col-md-4 mb-5 mb-md-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-           
-              <a  sec:authorize="isAuthenticated()" class="link-unstyled" th:href='selectedbands'>
-              <i class="icon-magic-wand"></i></a><i sec:authorize="!isAuthenticated()" class="icon-magic-wand"></i>
-         
-            </span>
-  
-            <h4>
-              <strong>Playlist Creator</strong><br/>
-              <span class="text-secondary mb-2" sec:authorize="!isAuthenticated()" >Please Register to use this feature<br/></span>
-            </h4>
-            <p class="text-faded mb-2">Create music playlist!</p>
-          </div>
-          
-          
-          
-          <div class="col-lg-4 col-md-4 mb-5 mb-lg-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <a sec:authorize="isAuthenticated()" class="link-unstyled" href="bandsQueue"><i class="icon-layers"></i></a>
-              <i sec:authorize="!isAuthenticated()" class="icon-layers"></i>
-            </span>
-            <h4>
-              <strong>Library</strong><br/>
-              <span class="text-secondary mb-2" sec:authorize="!isAuthenticated()" >Please Register to use this feature<br/></span>
-            </h4>
-            <p class="text-faded mb-2">Our artists library isn't perfect?<br/>Help to improve it and add bands to Database! </p>
-          </div>
-          
-          
-          
-          <div class="col-lg-12 col-md-4 mb-5 mb-lg-0" sec:authorize="hasAuthority('Admin')">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <a  class="link-unstyled" href="admin/bandsQueueAdmin">
-              <i class="icon-settings"></i></a>
-            </span>
-            <h4>
-              <strong>Bands Queue</strong>
-            </h4>
-            <p class="text-faded mb-2">Accept or do not bands from queue!</p>
-          </div>
-          
-          
+	<section class="content-section bg-primary text-white text-center"
+		id="services">
+		<div class="container">
+			<div class="content-section-heading">
+				<h2 class="text-secondary mb-2">Tools</h2>
+				<p class="lead mb-5">Discover PlayOFF Creator or say: 'Hello
+					World'!</p>
+			</div>
 
 
-      </div>
-      </div>
-    </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <header th:replace="fragments/footer :: footer"></header>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-4 mb-5 mb-lg-0">
+					<span class="service-icon rounded-circle mx-auto mb-3"> <a
+						class="link-unstyled" href="listofallbands"><i
+							class="icon-rocket"></i></a>
+					</span>
+					<h4>
+						<strong>Music</strong>
+					</h4>
+					<p class="text-faded mb-2">Choose your favorites Artists and
+						send them to Playlist Creator!</p>
+				</div>
+
+				<div class="col-lg-4 col-md-4 mb-5 mb-md-0">
+					<span class="service-icon rounded-circle mx-auto mb-3"> <a
+						sec:authorize="isAuthenticated()" class="link-unstyled"
+						href='users/selectedbands'> <i class="icon-magic-wand"></i></a><i
+						sec:authorize="!isAuthenticated()" class="icon-magic-wand"></i>
+
+					</span>
+					<h4>
+						<strong>Playlist Manager</strong><br /> <span
+							class="text-secondary mb-2" sec:authorize="!isAuthenticated()">Please
+							Register to use this feature<br />
+						</span>
+					</h4>
+					<p class="text-faded mb-2">Manage your playlist, send it to
+						Spotify or wherever you want!</p>
+				</div>
+
+
+				<div class="col-lg-4 col-md-4 mb-5 mb-lg-0">
+					<span class="service-icon rounded-circle mx-auto mb-3"> <a
+						sec:authorize="isAuthenticated()" class="link-unstyled"
+						href="users/bandsQueue"><i class="icon-layers"></i></a> <i
+						sec:authorize="!isAuthenticated()" class="icon-layers"></i>
+					</span>
+					<h4>
+						<strong>Artists Library</strong><br /> <span
+							class="text-secondary mb-2" sec:authorize="!isAuthenticated()">Please
+							Register to use this feature<br />
+						</span>
+					</h4>
+
+
+					<p class="text-faded mb-2">
+						Our artists library isn't perfect?<br />Help to improve it and
+						add bands to Database! <br /> <i>All records are sent first
+							to Bands Queue and are waiting for Admin accept.</i>
+					</p>
+				</div>
+
+
+
+				<div class="col-lg-12 col-md-4 mb-5 mb-lg-0"
+					sec:authorize="hasAuthority('Admin')">
+					<span class="service-icon rounded-circle mx-auto mb-3"> <a
+						class="link-unstyled" href="admin/bandsQueueAdmin"> <i
+							class="icon-settings"></i></a>
+					</span>
+					<h4>
+						<strong>Bands Queue Manager</strong><br /> <strong>Only
+							for ADMINS</strong>
+					</h4>
+					<p class="text-faded mb-2">
+						Manage adding Artists to Database.<br /> <i>Here you are able
+							to add or delete bands from Bands Queue.</i>
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<header th:replace="fragments/footer :: footer"></header>
 
 
 </body>

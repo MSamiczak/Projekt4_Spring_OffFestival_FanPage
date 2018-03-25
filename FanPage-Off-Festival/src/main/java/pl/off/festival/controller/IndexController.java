@@ -37,17 +37,15 @@ public class IndexController {
 			Pageable pageable) {
 
 		List<Offview> pageOff = offViewService.getByFilter(bandsFilter);
-		model.addAttribute("bands", pageOff);
-//		PageWrapper<Offview> page = new PageWrapper<>(pageOff, "listofallbands");
-//		model.addAttribute("page", page);
-		model.addAttribute("year", year);
 
+		model.addAttribute("bands", pageOff);
+		model.addAttribute("year", year);
 		model.addAttribute("filter", bandsFilter);
 
 		return "listofallbands";
 
 	}
-	
+
 	@GetMapping("/about")
 	public String about(Model model) {
 
