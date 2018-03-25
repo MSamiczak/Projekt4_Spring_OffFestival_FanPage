@@ -171,12 +171,11 @@
 						</table>
 
 
-						<span class="year">Show all</span><br />
+						<!-- <span class="year"></span><br /> -->
 						<form class="inline form-unstyled" th:action="@{/bandsbyyears}"
 							method="post" th:object="${filter.year}">
 							<input type="hidden" name="year" value='' />
-							<button type="submit" class="btn btn-link">Artists / Top
-								Songs</button>
+							<button type="submit" class="btn btn-link">Show all</button>
 						</form>
 						<br /> <a class="mt-3 btn btn-dark btn-xl js-scroll-trigger"
 							href="#services">Next</a>
@@ -199,8 +198,7 @@
 		<div class="container">
 			<div class="content-section-heading">
 				<h2 class="text-secondary mb-2">Tools</h2>
-				<p class="lead mb-5">Discover PlayOFF Creator or say: 'Hello
-					World'!</p>
+				<p class="lead mb-5">Discover PlayOFF Creator and more!</p>
 			</div>
 
 
